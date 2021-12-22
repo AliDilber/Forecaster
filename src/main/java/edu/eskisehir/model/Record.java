@@ -3,6 +3,15 @@ package edu.eskisehir.model;
 public class Record {
     private String month;
     private int value;
+    private String year;
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
 
     public String getMonth() {
         return month;
