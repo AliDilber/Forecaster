@@ -27,7 +27,7 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cboxDatasetSelector = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -40,10 +40,15 @@ public class GUI extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(600, 600));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dataset 1", "Dataset 2" }));
-        jComboBox1.setToolTipText("Choose a dataset");
-        jComboBox1.setName("cboxDataset"); // NOI18N
-        jComboBox1.setPrototypeDisplayValue("Please select");
+        cboxDatasetSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dataset 1", "Dataset 2" }));
+        cboxDatasetSelector.setToolTipText("Choose a dataset");
+        cboxDatasetSelector.setName("cboxDataset"); // NOI18N
+        cboxDatasetSelector.setPrototypeDisplayValue("Please select");
+        cboxDatasetSelector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxDatasetSelectorActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Load Dataset");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,19 +76,20 @@ public class GUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(472, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cboxDatasetSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2)))
+                .addContainerGap(465, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cboxDatasetSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -93,7 +99,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(467, Short.MAX_VALUE))
         );
 
-        jComboBox1.getAccessibleContext().setAccessibleName("cboxDataset");
+        cboxDatasetSelector.getAccessibleContext().setAccessibleName("cboxDataset");
         jButton1.getAccessibleContext().setAccessibleName("btnLoad");
 
         getAccessibleContext().setAccessibleDescription("");
@@ -106,7 +112,7 @@ public class GUI extends javax.swing.JFrame {
         jButton1.setEnabled(false);
         jButton2.setEnabled(false);
         jButton3.setEnabled(true);
-        System.out.println(jComboBox1.getSelectedItem().toString());
+        System.out.println(cboxDatasetSelector.getSelectedItem().toString());
     }//GEN-LAST:event_LoadDataset
 
     private void BrowseDataset(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrowseDataset
@@ -116,6 +122,10 @@ public class GUI extends javax.swing.JFrame {
     private void SolveDataset(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolveDataset
         // TODO add your handling code here:
     }//GEN-LAST:event_SolveDataset
+
+    private void cboxDatasetSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxDatasetSelectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxDatasetSelectorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,9 +163,9 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cboxDatasetSelector;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     // End of variables declaration//GEN-END:variables
 }

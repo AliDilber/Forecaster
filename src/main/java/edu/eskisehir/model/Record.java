@@ -1,6 +1,8 @@
 package edu.eskisehir.model;
 
-public class Record {
+import java.io.Serializable;
+
+public class Record implements Serializable {
     private String month;
     private int value;
     private String year;
