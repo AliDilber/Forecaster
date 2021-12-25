@@ -389,6 +389,10 @@ public class Interface extends javax.swing.JFrame {
     private void createNewDataset(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createNewDataset
         // TODO add your handling code here:
         List<Integer> list = new ArrayList<Integer>();
+        if (this.demandDataset.size() < 1) {
+            System.out.println("You must load a dataset first to save it.");
+            return;
+        }
         for (int i = 0; i < 24; i++)
         {
             Integer value = (Integer)demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
