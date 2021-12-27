@@ -1,43 +1,62 @@
 package edu.eskisehir;
 
 import edu.eskisehir.model.Record;
+
+import edu.eskisehir.utils.DatasetIO;
 import org.junit.Test;
 
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Scanner;
+
+import edu.eskisehir.demandforecast.ExponentialSmoothingAlg;
+import edu.eskisehir.demandforecast.DeseasonalizedRegressionAnalysisAlg;
+import edu.eskisehir.demandforecast.DoubleExponentialSmoothingAlg;
+import edu.eskisehir.demandforecast.RegressionAnalysisAlg;
+
+import java.util.stream.Collectors;
 
 public class LoadDatasetTest {
 
     @Test
-    public void loadTest() throws IOException {
-        System.out.println(readDataset("Dataset1.csv"));
-        System.out.println(readDataset("Dataset2.csv"));
-
+    public void loadTest1() throws IOException {
+        List<Record> dataset = DatasetIO.readDataset("Dataset1.csv");
+        ExponentialSmoothingAlg alg = new ExponentialSmoothingAlg();
+        alg.run(dataset);
+        System.out.println(dataset.stream().map(Record::getValue).collect(Collectors.toList()));
+        System.out.println(alg.getForecasts());
+        System.out.println("MSE: " + alg.getMse());
     }
-    public List<Record> readDataset(String filename) throws IOException {
-        try (InputStream stream = new FileInputStream(filename)) {
-            Scanner scanner = new Scanner(stream);
-            String headerLine = scanner.nextLine();
-            String[] headers = headerLine.split(",");
-            List<Record> records = new ArrayList<>();
-            while (scanner.hasNext()) {
-                String line = scanner.nextLine();
-                String[] cells = line.split(",");
-                String year = cells[0];
-                for (int i = 1; i < cells.length; i++) {
-                    Record record = new Record();
-                    record.setMonth(headers[i]);
-                    record.setValue(Integer.parseInt(cells[i]));
-                    record.setYear(year);
-                    records.add(record);
-                }
-            }
-            return records;
-        }
+
+    @Test
+    public void loadTest2() throws IOException {
+        List<Record> dataset = DatasetIO.readDataset("Dataset1.csv");
+        DoubleExponentialSmoothingAlg alg = new DoubleExponentialSmoothingAlg();
+        alg.run(dataset);
+        System.out.println(dataset.stream().map(Record::getValue).collect(Collectors.toList()));
+        System.out.println(alg.getForecasts());
+        System.out.println("MSE: " + alg.getMse());
+    }
+
+    @Test
+    public void loadTest3() throws IOException {
+        List<Record> dataset = DatasetIO.readDataset("Dataset1.csv");
+        RegressionAnalysisAlg alg = new RegressionAnalysisAlg();
+        alg.run(dataset);
+        System.out.println(dataset.stream().map(Record::getValue).collect(Collectors.toList()));
+        System.out.println(alg.getForecasts());
+        System.out.println("MSE: " + alg.getMse());
+    }
+
+    @Test
+    public void loadTest4() throws IOException {
+        List<Record> dataset = DatasetIO.readDataset("Dataset1.csv");
+        DeseasonalizedRegressionAnalysisAlg alg = new DeseasonalizedRegressionAnalysisAlg();
+        alg.run(dataset);
+        System.out.println(dataset.stream().map(Record::getValue).collect(Collectors.toList()));
+        System.out.println(alg.getForecasts());
+        System.out.println("MSE: " + alg.getMse());
     }
 }
 
