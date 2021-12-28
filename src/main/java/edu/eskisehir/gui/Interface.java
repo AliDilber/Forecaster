@@ -482,8 +482,7 @@ public class Interface extends javax.swing.JFrame {
             return;
         }
         for (int i = 0; i < dataset.size(); i++) {
-            String strValue = (String) demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
-            strValue.trim();
+            String strValue = ((String) demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11)).trim().replace(" ", "");
             if (strValue.isEmpty()) {
                 System.out.println("You have to load a dataset first!");
                 return;
