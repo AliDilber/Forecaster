@@ -2,6 +2,7 @@ package edu.eskisehir.gui;
 
 import edu.eskisehir.solution.*;
 import edu.eskisehir.utils.LinkedList;
+import java.awt.Component;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -176,7 +177,7 @@ public class Interface extends javax.swing.JFrame {
         console.setEditable(false);
         console.setColumns(20);
         console.setRows(5);
-        console.setText("You can select datasets by selecting on dropbox menu then also you can change the values of dataset that you've chosen by changing the table and then\npressing set button. Afterwards you can calculate both 4 forecasting methods using the dataset.");
+        console.setText("You can select datasets by selecting on dropbox menu then also you can change the values of dataset that you've chosen by changing the table and then\npressing set button. Afterwards you can calculate both 4 forecasting methods using the dataset.\nYou can also enter 20+30+50 input for 10 day perioding for a month.");
         jScrollPane3.setViewportView(console);
 
         btnCalculate.setText("Calculate");
@@ -186,7 +187,7 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        datasetChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Dataset 1", "Dataset 2"}));
+        datasetChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dataset 1", "Dataset 2" }));
 
         btnSet.setText("Set");
         btnSet.addActionListener(new java.awt.event.ActionListener() {
@@ -196,49 +197,64 @@ public class Interface extends javax.swing.JFrame {
         });
 
         demandTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {"Year 1", null, null, null, null, null, null, null, null, null, null, null, null},
-                        {"Year 2", null, null, null, null, null, null, null, null, null, null, null, null}
-                },
-                new String[]{
-                        "Period", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
-                }
+            new Object [][] {
+                {"Year 1", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"Year 2", null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Period", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
+            }
         ) {
-            Class[] types = new Class[]{
-                    java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true, true, true, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(demandTable);
         if (demandTable.getColumnModel().getColumnCount() > 0) {
+            demandTable.getColumnModel().getColumn(0).setResizable(false);
             demandTable.getColumnModel().getColumn(1).setResizable(false);
             demandTable.getColumnModel().getColumn(2).setResizable(false);
+            demandTable.getColumnModel().getColumn(3).setResizable(false);
             demandTable.getColumnModel().getColumn(4).setResizable(false);
+            demandTable.getColumnModel().getColumn(5).setResizable(false);
+            demandTable.getColumnModel().getColumn(6).setResizable(false);
             demandTable.getColumnModel().getColumn(7).setResizable(false);
+            demandTable.getColumnModel().getColumn(8).setResizable(false);
+            demandTable.getColumnModel().getColumn(9).setResizable(false);
+            demandTable.getColumnModel().getColumn(10).setResizable(false);
             demandTable.getColumnModel().getColumn(11).setResizable(false);
+            demandTable.getColumnModel().getColumn(12).setResizable(false);
         }
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Forecaster");
 
         forecastTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {"Year 1", null, null, null, null, null, null, null, null, null, null, null, null},
-                        {"Year 2", null, null, null, null, null, null, null, null, null, null, null, null}
-                },
-                new String[]{
-                        "Period", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
-                }
+            new Object [][] {
+                {"Year 1", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"Year 2", null, null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Period", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"
+            }
         ) {
-            Class[] types = new Class[]{
-                    java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
+                return types [columnIndex];
             }
         });
         jScrollPane2.setViewportView(forecastTable);
@@ -285,60 +301,60 @@ public class Interface extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane3)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel1)
-                                                        .addComponent(jLabel2)
-                                                        .addComponent(jLabel3)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(btnNew)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(btnDelete)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(datasetChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(btnLoad)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(btnSave)
-                                                                .addGap(9, 9, 9)
-                                                                .addComponent(btnSet)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(btnCalculate)))
-                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnNew)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDelete)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(datasetChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnLoad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSave)
+                                .addGap(9, 9, 9)
+                                .addComponent(btnSet)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCalculate)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(2, 2, 2)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)
-                                .addGap(2, 2, 2)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(datasetChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnSet)
-                                        .addComponent(btnCalculate)
-                                        .addComponent(btnLoad)
-                                        .addComponent(btnNew)
-                                        .addComponent(btnDelete)
-                                        .addComponent(btnSave))
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel2)
-                                .addGap(1, 1, 1)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(115, 115, 115))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(2, 2, 2)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(2, 2, 2)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(datasetChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSet)
+                    .addComponent(btnCalculate)
+                    .addComponent(btnLoad)
+                    .addComponent(btnNew)
+                    .addComponent(btnDelete)
+                    .addComponent(btnSave))
+                .addGap(1, 1, 1)
+                .addComponent(jLabel2)
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
 
         pack();
@@ -357,7 +373,7 @@ public class Interface extends javax.swing.JFrame {
         LinkedList<Double> dataset = datasets.get(index);
         for (int i = 0; i < dataset.size(); i++) {
             if (dataset.get(i) != null) {
-                demandTable.setValueAt(dataset.get(i), i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
+                demandTable.setValueAt(Integer.toString(dataset.get(i).intValue()), i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
             }
         }
         this.demandDataset = dataset;
@@ -370,7 +386,7 @@ public class Interface extends javax.swing.JFrame {
         LinkedList<Double> dataset = datasets.get(index);
         LinkedList<Double> tempDataset = new LinkedList<>();
         for (int i = 0; i < dataset.size(); i++) {
-            Double value = (Double) demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
+            Double value = Double.valueOf((String) demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11));
             tempDataset.add(value);
         }
         datasets.set(index, dataset);
@@ -393,7 +409,7 @@ public class Interface extends javax.swing.JFrame {
             return;
         }
         for (int i = 0; i < 24; i++) {
-            Double value = (Double) demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
+            Double value = Double.valueOf((String) demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11));
             list.add(value);
         }
         System.out.println("New dataset from demand dataset has been created.");
@@ -452,11 +468,10 @@ public class Interface extends javax.swing.JFrame {
     private void loadForecastedDataset() {
         for (int i = 0; i < forecastDataset.size(); i++) {
             if (forecastDataset.get(i) != null) {
-                forecastTable.setValueAt(forecastDataset.get(i).intValue(), i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
+                forecastTable.setValueAt(Integer.toString(forecastDataset.get(i).intValue()), i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
             }
         }
     }
-
 
     private void saveDataset(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDataset
         // TODO add your handling code here:
@@ -467,10 +482,21 @@ public class Interface extends javax.swing.JFrame {
             return;
         }
         for (int i = 0; i < dataset.size(); i++) {
-            Double value = (Double) demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
-            if (value == null) {
+            String strValue = (String) demandTable.getValueAt(i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
+            strValue.trim();
+            if (strValue.isEmpty()) {
                 System.out.println("You have to load a dataset first!");
                 return;
+            }
+            Double value = 0d;
+            if (strValue.contains("+")) {
+                String[] strNumbers = strValue.split("\\+");
+                for (int j = 0; j < strNumbers.length; j++) {
+                    value += Integer.valueOf(strNumbers[j]).doubleValue();
+                }
+                demandTable.setValueAt(Integer.toString(value.intValue()), i < 12 ? 0 : 1, i < 12 ? i + 1 : i - 11);
+            } else {
+                value = Double.valueOf(strValue);
             }
             dataset.set(i, value);
         }

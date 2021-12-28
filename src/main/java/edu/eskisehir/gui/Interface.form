@@ -111,7 +111,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="You can select datasets by selecting on dropbox menu then also you can change the values of dataset that you&apos;ve chosen by changing the table and then&#xa;pressing set button. Afterwards you can calculate both 4 forecasting methods using the dataset."/>
+            <Property name="text" type="java.lang.String" value="You can select datasets by selecting on dropbox menu then also you can change the values of dataset that you&apos;ve chosen by changing the table and then&#xa;pressing set button. Afterwards you can calculate both 4 forecasting methods using the dataset.&#xa;You can also enter 20+30+50 input for 10 day perioding for a month."/>
           </Properties>
         </Component>
       </SubComponents>
@@ -156,27 +156,32 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="13" rowCount="2">
-                <Column editable="true" title="Period" type="java.lang.Object">
+                <Column editable="false" title="Period" type="java.lang.Object">
                   <Data value="Year 1"/>
                   <Data value="Year 2"/>
                 </Column>
-                <Column editable="true" title="1" type="java.lang.Integer"/>
-                <Column editable="true" title="2" type="java.lang.Integer"/>
-                <Column editable="true" title="3" type="java.lang.Integer"/>
-                <Column editable="true" title="4" type="java.lang.Integer"/>
-                <Column editable="true" title="5" type="java.lang.Integer"/>
-                <Column editable="true" title="6" type="java.lang.Integer"/>
-                <Column editable="true" title="7" type="java.lang.Integer"/>
-                <Column editable="true" title="8" type="java.lang.Integer"/>
-                <Column editable="true" title="9" type="java.lang.Integer"/>
-                <Column editable="true" title="10" type="java.lang.Integer"/>
-                <Column editable="true" title="11" type="java.lang.Integer"/>
-                <Column editable="true" title="12" type="java.lang.Integer"/>
+                <Column editable="true" title="1" type="java.lang.String"/>
+                <Column editable="true" title="2" type="java.lang.String"/>
+                <Column editable="true" title="3" type="java.lang.String"/>
+                <Column editable="true" title="4" type="java.lang.String"/>
+                <Column editable="true" title="5" type="java.lang.String"/>
+                <Column editable="true" title="6" type="java.lang.String"/>
+                <Column editable="true" title="7" type="java.lang.String"/>
+                <Column editable="true" title="8" type="java.lang.String"/>
+                <Column editable="true" title="9" type="java.lang.String"/>
+                <Column editable="true" title="10" type="java.lang.String"/>
+                <Column editable="true" title="11" type="java.lang.String"/>
+                <Column editable="true" title="12" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -191,7 +196,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -201,12 +206,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -216,17 +216,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -236,7 +226,17 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
