@@ -59,7 +59,7 @@ public class DRASolution extends Solution {
                 periodAverage = (actualDataset.get(i) + actualDataset.get(i - 12)) / 2.0;
             }
             periodFactor = periodAverage / f;
-            forecast = periodFactor * (a + b * (i + 1));
+            forecast = periodFactor * (a + b * (i + 25));
             forecastedDataset.add(forecast);
         }
         calculateMSE();
