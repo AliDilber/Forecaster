@@ -111,7 +111,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="You can select datasets by selecting on dropbox menu then also you can change the values of dataset that you&apos;ve chosen by changing the table and then&#xa;pressing set button. Afterwards you can calculate both 4 forecasting methods using the dataset.&#xa;You can also enter 20+30+50 input for 10 day perioding for a month."/>
+            <Property name="text" type="java.lang.String" value="You can select datasets by selecting on dropbox menu then also you can change the values of dataset &#xa;that you&apos;ve chosen by changing the table and then pressing set button. &#xa;Afterwards you can calculate both 4 forecasting methods using the dataset.&#xa;You can also enter 20+30+50 input for 10 day perioding for a month."/>
           </Properties>
         </Component>
       </SubComponents>

@@ -21,6 +21,7 @@ public class Interface extends javax.swing.JFrame {
 
     /**
      * Creates new form Interface
+     *
      */
     public Interface() {
         initComponents();
@@ -177,7 +178,7 @@ public class Interface extends javax.swing.JFrame {
         console.setEditable(false);
         console.setColumns(20);
         console.setRows(5);
-        console.setText("You can select datasets by selecting on dropbox menu then also you can change the values of dataset that you've chosen by changing the table and then\npressing set button. Afterwards you can calculate both 4 forecasting methods using the dataset.\nYou can also enter 20+30+50 input for 10 day perioding for a month.");
+        console.setText("You can select datasets by selecting on dropbox menu then also you can change the values of dataset \nthat you've chosen by changing the table and then pressing set button. \nAfterwards you can calculate both 4 forecasting methods using the dataset.\nYou can also enter 20+30+50 input for 10 day perioding for a month.");
         jScrollPane3.setViewportView(console);
 
         btnCalculate.setText("Calculate");
